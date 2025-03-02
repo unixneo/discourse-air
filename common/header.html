@@ -1,1 +1,64 @@
 <div class="background-container"></div>
+
+<meta name="google-site-verification" content="IRSOCxclhQ3ynQHh5zO2js5hftZ4UYTrk_iImCo5sIg" />
+<script type='text/discourse-plugin' version='0.8.19'>
+api.onPageChange(url => {
+    if (!document.getElementById('container-names')  && document.getElementsByClassName("admin-content").length > 0)
+    {
+        var my_div = document.createElement('div');
+        my_div.setAttribute("id", "container-names");
+        my_div.style.margin = "10px";
+        my_div.innerHTML = 'Containers: '+gon.global.container_main+', '+gon.global.container_data+'<br>  Disk Space (df) on '+gon.global.diskspace;
+        var element = document.getElementsByClassName("admin-content");
+        element[0].prepend(my_div);
+    }
+    
+    let items = document.querySelectorAll(".admin-main-nav > ul > li");
+    items.forEach(removeAPIMenuItem);
+    function removeAPIMenuItem(item){
+        if (item.innerText == "API"){
+        item.remove();
+        }
+    }
+});
+</script>
+<meta name="google-site-verification" content="IRSOCxclhQ3ynQHh5zO2js5hftZ4UYTrk_iImCo5sIg" />
+<script type='text/discourse-plugin' version='0.8.19'>
+api.onPageChange(url => {
+    if (document.getElementById('navigation-bar') && document.getElementsByClassName('legacy').length == 0 )
+    {
+        var x = Math.floor((Math.random() * 10) + 1);
+        const menu = document.querySelector('#navigation-bar');
+       
+
+        if (x > 5){
+            var ref = document.createElement('li');
+            var y = Math.floor((Math.random() * 10) + 1);
+            if (y > 100)
+            {
+                ref.innerHTML = '<a href="https://www.unix.com/man_pages/all">Man Page Repository</a>';
+            }
+            else if (y > 99)
+            {
+                ref.innerHTML = '<a href="https://www.unix.com/man_pages/bsd">BSD Man Pages</a>';
+            }
+            else
+            {
+                ref.innerHTML = '<a href="https://www.unix.com/man_pages/linux">Linux Man Pages</a>';
+            }
+            ref.setAttribute("class", "ember-view");
+            ref.setAttribute("class", "legacy navigation-toggle");
+            ref.style.margin = "0px 0px 0px 0px";
+            menu.appendChild(ref);
+        }
+        else{
+            var man = document.createElement('li');
+            man.innerHTML = '<a href="https://www.unix.com/man_pages/all">Man Pages</a>';
+            man.setAttribute("class", "ember-view");
+            man.setAttribute("class", "legacy");
+            man.style.margin = "0px 0px 0px 0px";
+            menu.appendChild(man);
+        }
+    }
+});
+</script>
