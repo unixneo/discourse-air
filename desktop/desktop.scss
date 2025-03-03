@@ -9,3 +9,12 @@
 #current-user {
     margin-right: 30px;
 }
+
+.legacy {
+    background-color: transparent !important;
+}
+
+.legacy a {
+    color: black !important;
+    text-decoration: none; /* Optional: removes underline */
+}
