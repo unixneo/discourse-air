@@ -6,6 +6,10 @@
     background-color: transparent !important;
 }
 
+.flaticon-icon {
+    filter: brightness(0) invert(1);
+}
+
 .legacy a {
     text-decoration: none; /* Optional: removes underline */
 }
