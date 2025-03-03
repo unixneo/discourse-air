@@ -10,12 +10,20 @@
   }
 }
 
+.topics {
+    overflow-x: auto;  /* Enables horizontal scrolling */
+    white-space: nowrap;  /* Prevents wrapping of inline elements */
+    display: block;  /* Ensures the div behaves correctly */
+    width: 100%;  /* Ensures it spans the full container width */
+}
+
+
 .legacy {
     background-color: transparent !important;
 }
 
 .legacy a {
-    color: black !important;
+    color: black !important;x
     text-decoration: none; /* Optional: removes underline */
 }
 
