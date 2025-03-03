@@ -2,8 +2,13 @@
 .top-lists{
    font-size: 0.9em;
 }
+.legacy {
+    background-color: transparent !important;
+}
+
 .legacy a {
     color: black !important;
+    text-decoration: none; /* Optional: removes underline */
 }
 #main-outlet-wrapper {
   margin-top: 25px;
