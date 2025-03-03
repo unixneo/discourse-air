@@ -1,5 +1,8 @@
 @import "chat-mobile";
 
+.category-heading .category-logo {
+    background-color: transparent !important;
+}
 
 .nav-pills {
     display: flex;         /* Ensures horizontal layout */
