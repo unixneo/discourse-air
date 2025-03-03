@@ -13,6 +13,14 @@
 .legacy a {
     text-decoration: none; /* Optional: removes underline */
 }
+.badge-category__wrapper {
+    white-space: normal !important;  /* Allows text to wrap */
+    word-wrap: break-word;           /* Ensures long words break */
+    overflow-wrap: break-word;       /* Alternative for better compatibility */
+    display: block;                  /* Ensures wrapping within container */
+    max-width: 100%;                 /* Prevents overflow */
+}
+
 #main-outlet-wrapper {
   margin-top: 25px;
 }
