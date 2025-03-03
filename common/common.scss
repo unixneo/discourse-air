@@ -27,11 +27,12 @@
 #main-outlet-wrapper {
   margin-top: 25px;
 }
-.custom-search-banner,
-.time,
-.categpry-logo {
-  display:none;
+
+.category-logo.aspect-image {
+    display: none !important;
 }
+
+
 .custom-search-banner-wrap {
   margin: 0 auto !important;
   max-width: unset;
