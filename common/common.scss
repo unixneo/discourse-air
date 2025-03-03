@@ -3,6 +3,15 @@
     background-color: transparent !important;
 }
 
+@media (max-width: 1099px) {
+  .topic-list-data.activity,
+  .topic-list-data.views,
+  .topic-list-data.posts,
+  .topic-list-data.age {
+    display: none;
+  }
+}
+
 
 .top-lists{
    font-size: 0.9em;
