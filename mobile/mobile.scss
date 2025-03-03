@@ -2,15 +2,16 @@
 
 .topic-item-metadata.right {
     display: block; /* Ensures proper rendering */
-    overflow-x: auto; /* Enables horizontal scrolling */
-    white-space: nowrap; /* Prevents content from wrapping */
-    scrollbar-width: thin; /* For Firefox */
+    width: max-content; /* Allows content to expand beyond the parent container */
+    max-width: 100%; /* Prevents excessive overflow */
+    overflow-x: auto !important; /* Enables horizontal scrolling */
+    white-space: nowrap; /* Prevents text wrapping */
+    scrollbar-width: thin; /* Makes scrollbar thinner (for Firefox) */
     -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
-    max-width: 100%; /* Prevents overflow beyond container */
 }
 
 .topic-item-metadata.right::-webkit-scrollbar {
-    height: 6px; /* Adjusts scrollbar thickness */
+    height: 6px; /* Adjust scrollbar height */
 }
 
 .topic-item-metadata.right::-webkit-scrollbar-thumb {
