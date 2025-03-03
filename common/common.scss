@@ -19,6 +19,13 @@
     display: none !important;
 }
 
+.category-heading {
+    color: black !important;
+}
+
+.category-heading a {
+    color: black !important; /* Ensures links inside are also black */
+}
 
 .legacy a {
     font-weight: bold !important;
