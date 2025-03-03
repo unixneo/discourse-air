@@ -1,6 +1,10 @@
 @import "chat-mobile";
 
 
+.category-heading,
+.category-heading * {
+    color: black !important;
+}
 
 .category-heading .category-logo {
     background-color: transparent !important;
