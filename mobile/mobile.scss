@@ -10,6 +10,10 @@
   }
 }
 
+.search-dropdown.header-dropdown-toggle {
+  display:none;
+}
+
 html
   body:not(.static-tos):not(.static-faq):not(.static-privacy):not(
     .about-page
