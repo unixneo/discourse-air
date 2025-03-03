@@ -1,5 +1,24 @@
 @import "chat-mobile";
 
+.topic-item-metadata.right {
+    display: block; /* Ensures proper rendering */
+    overflow-x: auto; /* Enables horizontal scrolling */
+    white-space: nowrap; /* Prevents content from wrapping */
+    scrollbar-width: thin; /* For Firefox */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+    max-width: 100%; /* Prevents overflow beyond container */
+}
+
+.topic-item-metadata.right::-webkit-scrollbar {
+    height: 6px; /* Adjusts scrollbar thickness */
+}
+
+.topic-item-metadata.right::-webkit-scrollbar-thumb {
+    background: #999; /* Scrollbar color */
+    border-radius: 4px;
+}
+
+
 .category-heading .category-logo {
     background-color: transparent !important;
 }
