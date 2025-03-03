@@ -116,6 +116,14 @@ ol.category-breadcrumb {
   max-width: unset;
 }
 
+.topic-list-data.activity,
+.topic-list-data.views,
+.topic-list-data.posts,
+.topic-list-data.age{
+  display:none;
+}
+
+
 .custom-search-banner-wrap .search-context {
   top: 3em !important;
 }
