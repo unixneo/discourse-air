@@ -1,5 +1,11 @@
 @import "chat-mobile";
 
+ #main-outlet-wrapper {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        width: 100vw;
+    }
 
 .category-heading,
 .category-heading * {
