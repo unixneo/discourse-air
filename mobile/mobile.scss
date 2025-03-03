@@ -10,8 +10,13 @@
   }
 }
 
+.legacy {
+    background-color: transparent !important;
+}
+
 .legacy a {
     color: black !important;
+    text-decoration: none; /* Optional: removes underline */
 }
 
 .search-dropdown.header-dropdown-toggle {
