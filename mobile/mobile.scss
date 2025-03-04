@@ -9,6 +9,10 @@
     background-color: transparent !important;
 }
 
+.selected-name {
+    font-size: 80%; /* Reduces the size by 20% */
+}
+
 .nav-pills {
     display: flex;         /* Ensures horizontal layout */
     overflow-x: auto;      /* Enables horizontal scrolling */
