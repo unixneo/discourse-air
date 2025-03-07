@@ -362,12 +362,10 @@ html body #main-outlet {
   }
 
 }
-
 // Media query for iPhone 12 Mini (360px × 780px)
- @media screen and (max-width: 380px) {
-
+@media screen and (max-width: 380px) {
   #main-outlet-wrapper {
-      gap: 0em !important;
+    gap: 0em !important;
   }  
      
   #main-outlet {
@@ -384,10 +382,11 @@ html body #main-outlet {
     display: none !important;
   }
 
-.d-header .home-logo-wrapper-outlet {
+  .d-header .home-logo-wrapper-outlet { // Correct indentation
     margin-right: 0em;
- }
+  }
 }
+
 .nav-pills:not(.user-nav) > li a.active,
 .nav-pills:not(.user-nav) > li > a {
   border-radius: 0.5em;
