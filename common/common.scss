@@ -1,3 +1,29 @@
+// Media query for iPhone 12 Mini (360px × 780px)
+@media screen and (max-width: 380px) {
+  #main-outlet-wrapper {
+    gap: 0em !important;
+  }  
+     
+  #main-outlet {
+    width: 95%;
+    padding: 1em;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    margin-left: 3px !important;
+  }
+
+  .custom-search-banner,
+  .floating-search-input-wrapper,
+  .time {
+    display: none !important;
+  }
+
+  .d-header .home-logo-wrapper-outlet { // Correct indentation
+    margin-right: 0em;
+  }
+}
+
+
 // custom search banner customizations
 .list-controls {
     background-color: transparent !important;
