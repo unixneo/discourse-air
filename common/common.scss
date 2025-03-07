@@ -364,7 +364,7 @@ html body #main-outlet {
 }
 
 // Media query for iPhone 12 Mini (360px × 780px)
- @media screen and (max-width: 375px) and (max-height: 812px) {
+ @media screen and (max-width: 380px) {
   #main-outlet {
     width: 95%;
     padding: 1em;
@@ -373,6 +373,7 @@ html body #main-outlet {
   }
 
   .custom-search-banner,
+  .floating-search-input-wrapper,
   .time {
     display: none !important;
   }
