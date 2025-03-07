@@ -361,20 +361,23 @@ html body #main-outlet {
     width: 85%;
   }
 
-  // Media query for iPhone 12 Mini (360px × 780px)
-  @media screen and (max-width: 360px) and (max-height: 780px) {
-    width: 95%;   // Adjust width to fit smaller screen
-    padding: 1em; // Reduce padding for better spacing
-    margin-top: 10px;  // Reduce top margin to utilize space
-    margin-bottom: 30px; // Adjust bottom margin for balance
-
-    // Hide specific elements for this screen size
-    .custom-search-banner,
-    .time {
-      display: none !important;
-    }
-  }
 }
+
+// Media query for iPhone 12 Mini (360px × 780px)
+ @media screen and (max-width: 375px) and (max-height: 812px) {
+  #main-outlet {
+    width: 95%;
+    padding: 1em;
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+
+  .custom-search-banner,
+  .time {
+    display: none !important;
+  }
+ }
+
 .nav-pills:not(.user-nav) > li a.active,
 .nav-pills:not(.user-nav) > li > a {
   border-radius: 0.5em;
