@@ -1,4 +1,155 @@
+// Media query for iPhone 12 Mini (360px × 780px)
+@media screen and (max-width: 380px) {
+  #main-outlet-wrapper {
+    gap: 0 !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    width: 100%;
+  }
+
+  h2.selected-name.date-section {
+    margin-right:10px;
+  }
+
+   .list-controls h2,
+  .list-controls .selected-name,
+  .list-controls .combo-box-header {
+    font-size: 0.7em !important;
+    padding: 5px !important;
+  }
+
+   .topic-list-item .avatar {
+    margin-right: 0.6em !important;
+  }
+
+  .topic-list-item .main-link {
+    padding-left: 0.2em !important;
+  }
+
+  #main-outlet {
+    width: 100%;
+    padding: 0.5em !important;
+    margin: 10px auto 30px !important;
+    box-sizing: border-box;
+  }
+
+  .home-logo-wrapper-outlet {
+    margin-left: 0.3em !important;
+    margin-right: 0.3em !important;
+  }
+
+  .custom-search-banner,
+  .welcome-link-banner,
+  .topic-list .activity,
+  .topic-list .posts,
+  .topic-list-data .posts,
+  .topic-list-data .activity,
+  .floating-search-input-wrapper,
+  .below-site-header-outlet.welcome-link-banner-connector .welcome-link-banner-wrapper .custom-search-banner,
+  .time {
+    display: none !important;
+  }
+
+  section.post-menu-area {
+    overflow-x: auto !important;
+    padding-bottom: 0.3em;
+  }
+
+  body {
+    padding: 0;
+    margin: 0;
+  }
+
+  /* Additional adjustments for topic-list alignment */
+  .topic-list-item {
+    padding-left: 0.3em !important;
+    padding-right: 0.3em !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .topic-list-item .main-link {
+    width: 100% !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .topic-list-item .topic-poster {
+    margin-left: 0.2em !important;
+    margin-right: 0.2em !important;
+    padding: 0 !important;
+  }
+
+  .topic-list-item .avatar {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .topic-list,
+  .topic-list ul,
+  .topic-list li {
+  padding: 0 !important;
+  margin: 0 !important;
+  } 
+
+}
+
+
+
 // custom search banner customizations
+.list-controls {
+    background-color: transparent !important;
+}
+
+
+.top-lists{
+   font-size: 0.9em;
+}
+.topic-post {
+    margin-top: 10px !important;
+}
+.legacy {
+    background-color: transparent !important;
+}
+.legacy:hover {
+    background-color: transparent !important; /* Removes background color on hover */
+}
+.category-logo {
+    background-color: #333 !important;
+}
+
+.powered-by-discourse {
+    display: none !important;
+}
+
+.category-heading,
+.category-heading * {
+    color: grey !important;
+}
+
+.category-heading a {
+    color: black !important; /* Ensures links inside are also black */
+}
+
+.legacy a {
+    font-weight: 500 !important;
+    text-decoration: none; /* Optional: removes underline */
+}
+.badge-category__wrapper {
+    white-space: normal !important;  /* Allows text to wrap */
+    word-wrap: break-word;           /* Ensures long words break */
+    overflow-wrap: break-word;       /* Alternative for better compatibility */
+    display: block;                  /* Ensures wrapping within container */
+    max-width: 100%;                 /* Prevents overflow */
+}
+
+#main-outlet-wrapper {
+  margin-top: 25px;
+}
+
+
 .custom-search-banner-wrap {
   margin: 0 auto !important;
   max-width: unset;
