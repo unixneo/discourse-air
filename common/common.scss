@@ -1,101 +1,29 @@
 // Media query for iPhone 12 Mini (360px × 780px)
 @media screen and (max-width: 380px) {
   #main-outlet-wrapper {
-    gap: 0 !important;
-    padding: 0 !important;
-    margin: 0 auto !important;
-    width: 100%;
-  }
-
-  h2.selected-name.date-section {
-    margin-right:10px;
-  }
-
-   .list-controls h2,
-  .list-controls .selected-name,
-  .list-controls .combo-box-header {
-    font-size: 0.7em !important;
-    padding: 5px !important;
-  }
-
-   .topic-list-item .avatar {
-    margin-right: 0.6em !important;
-  }
-
-  .topic-list-item .main-link {
-    padding-left: 0.2em !important;
-  }
-
+    gap: 0em !important;
+  }  
+     
   #main-outlet {
-    width: 100%;
-    padding: 0.5em !important;
-    margin: 10px auto 30px !important;
-    box-sizing: border-box;
+    width: 95%;
+    padding: 1em;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    margin-left: 3px !important;
   }
 
-  .home-logo-wrapper-outlet {
-    margin-left: 0.3em !important;
-    margin-right: 0.3em !important;
-  }
-
-  .custom-search-banner,
-  .welcome-link-banner,
-  .topic-list .activity,
-  .topic-list .posts,
   .topic-list-data .posts,
   .topic-list-data .activity,
-  .floating-search-input-wrapper,
   .below-site-header-outlet.welcome-link-banner-connector .welcome-link-banner-wrapper .custom-search-banner,
+  .floating-search-input-wrapper,
   .time {
     display: none !important;
   }
 
-  section.post-menu-area {
-    overflow-x: auto !important;
-    padding-bottom: 0.3em;
+  .d-header .home-logo-wrapper-outlet { // Correct indentation
+    margin-right: 0em;
   }
-
-  body {
-    padding: 0;
-    margin: 0;
-  }
-
-  /* Additional adjustments for topic-list alignment */
-  .topic-list-item {
-    padding-left: 0.3em !important;
-    padding-right: 0.3em !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-  }
-
-  .topic-list-item .main-link {
-    width: 100% !important;
-    margin-left: 0 !important;
-    padding-left: 0 !important;
-  }
-
-  .topic-list-item .topic-poster {
-    margin-left: 0.2em !important;
-    margin-right: 0.2em !important;
-    padding: 0 !important;
-  }
-
-  .topic-list-item .avatar {
-    width: 30px !important;
-    height: 30px !important;
-  }
-
-  .topic-list,
-  .topic-list ul,
-  .topic-list li {
-  padding: 0 !important;
-  margin: 0 !important;
-  } 
-
 }
-
 
 
 // custom search banner customizations
