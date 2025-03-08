@@ -6,11 +6,16 @@
      
   #main-outlet {
     width: 95%;
-    padding: 1em;
+    padding: 0.2em !important;
     margin-top: 10px;
     margin-bottom: 30px;
     margin-left: 3px !important;
   }
+
+ .home-logo-wrapper-outlet {
+    margin-left: 0.3em !important;
+  }
+
   
    .custom-search-banner,
    .welcome-link-banner,
