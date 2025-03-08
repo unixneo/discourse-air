@@ -7,7 +7,11 @@
     width: 100%;
   }
 
-  .list-controls h2,
+  h2.selected-name.date-section {
+    margin-right:10px;
+  }
+
+   .list-controls h2,
   .list-controls .selected-name,
   .list-controls .combo-box-header {
     font-size: 0.7em !important;
