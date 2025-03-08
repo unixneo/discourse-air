@@ -11,11 +11,16 @@
     margin-bottom: 30px;
     margin-left: 3px !important;
   }
-  
+
+   .welcome-link-banner,
    .topic-list .activity,
    .topic-list .posts {
         display: none !important;
    }
+
+  section.post-menu-area {
+    overflow: auto !important;
+  }
 
   .topic-list-data .posts,
   .topic-list-data .activity,
