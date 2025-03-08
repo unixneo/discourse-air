@@ -7,14 +7,11 @@
     width: 100%;
   }
 
-  .list-controls .combo-box .combo-box-header {
-    font-size: 0.8em !important;
-    padding: 0.2em !important;
-    white-space: nowrap !important;
-  }
-
-  .list-controls .combo-box .combo-box-header .selected-name {
+  .list-controls h2,
+  .list-controls .selected-name,
+  .list-controls .combo-box-header {
     font-size: 0.7em !important;
+    padding: 5px !important;
   }
 
    .topic-list-item .avatar {
