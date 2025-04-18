@@ -59,6 +59,9 @@ api.onPageChange(url => {
     }
 });
 </script>
+
+</head>
+<body>
 <script type="text/discourse-plugin" version="0.8">
   api.decorateWidget('header:after', helper => {
     const currentUser = helper.currentUser;
@@ -78,9 +81,6 @@ api.onPageChange(url => {
     }
   });
 </script>
-</head>
-<body>
-
 <div class="background-container"></div>
 
 
