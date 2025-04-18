@@ -1,4 +1,4 @@
-import { cancel } from "@ember/runloop";
+/* import { cancel } from "@ember/runloop"; */
 import { withPluginApi } from "discourse/lib/plugin-api";
 
 export default {
