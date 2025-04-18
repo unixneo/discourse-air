@@ -61,4 +61,11 @@ api.onPageChange(url => {
 </script>
 </head>
 <body>
+<% if !current_user %>
+<section class="title d-flex justify-content-center" style="background-color:black;">
+  <a href="https://get.openphone.com/unix-linux-man-pages" style="color:white !important; text-decoration:none;">
+    UNIX.COM Recommended: Try OpenPhone – A Top Tier Skype Replacement – Free 14 Day Trial
+  </a>
+</section>
+<% end %>
 <div class="background-container"></div>
