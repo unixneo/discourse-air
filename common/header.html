@@ -63,6 +63,7 @@ api.onPageChange(url => {
 <script type="text/discourse-plugin" version="0.8">
   api.onPageChange(() => {
     if (api.getCurrentUser()) return;
+    if (localStorage.getItem("guest_banner_dismissed") === "1") return;
     if (document.querySelector('.guest-banner')) return;
 
     const banner = document.createElement('section');
@@ -76,7 +77,7 @@ api.onPageChange(url => {
     `;
 
     const link = document.createElement('a');
-    link.href = 'https://get.openphone.com/unix-linux-man-pages';
+    link.href = 'https://get.openphone.com/unix-linux-community';
     link.style.cssText = 'color:#111; text-decoration:none;';
     link.innerHTML = `
       <strong>UNIX.COM Recommends OpenPhone:</strong>&nbsp;
@@ -96,7 +97,10 @@ api.onPageChange(url => {
       color: #111;
       cursor: pointer;
     `;
-    closeBtn.onclick = () => banner.remove();
+    closeBtn.onclick = () => {
+      banner.remove();
+      localStorage.setItem("guest_banner_dismissed", "1");
+    };
 
     banner.appendChild(link);
     banner.appendChild(closeBtn);
@@ -107,6 +111,7 @@ api.onPageChange(url => {
     }
   });
 </script>
+
 
 
 </head>
