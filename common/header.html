@@ -63,7 +63,12 @@ api.onPageChange(url => {
 <script type="text/discourse-plugin" version="0.8">
   api.onPageChange(() => {
     if (api.getCurrentUser()) return;
-    if (localStorage.getItem("guest_banner_dismissed") === "1") return;
+
+    const expiryKey = "guest_banner_dismissed_until";
+    const now = Date.now();
+    const storedUntil = parseInt(localStorage.getItem(expiryKey), 10);
+
+    if (storedUntil && now < storedUntil) return;
     if (document.querySelector('.guest-banner')) return;
 
     const bgElement = document.querySelector('.background-container');
@@ -103,7 +108,9 @@ api.onPageChange(url => {
     `;
     closeBtn.onclick = () => {
       banner.remove();
-      localStorage.setItem("guest_banner_dismissed", "1");
+      const expireInDays = 7;
+      const expiryTimestamp = now + (expireInDays * 24 * 60 * 60 * 1000);
+      localStorage.setItem(expiryKey, expiryTimestamp.toString());
     };
 
     banner.appendChild(link);
@@ -115,6 +122,7 @@ api.onPageChange(url => {
     }
   });
 </script>
+
 
 
 </head>
