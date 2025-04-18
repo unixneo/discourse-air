@@ -60,13 +60,13 @@ api.onPageChange(url => {
 });
 </script>
 
-</head>
-<body>
 <script type="text/discourse-plugin" version="0.8">
   api.decorateWidget('header:after', helper => {
     const currentUser = helper.currentUser;
+
     if (!currentUser) {
-      return helper.h('section', {
+      return helper.h('div', {
+        className: 'guest-banner',
         style: 'background-color:#00C2E8; color:#111; padding:0.5rem; text-align:center;'
       }, [
         helper.h('a', {
@@ -81,6 +81,9 @@ api.onPageChange(url => {
     }
   });
 </script>
+
+</head>
+<body>
 <div class="background-container"></div>
 
 
