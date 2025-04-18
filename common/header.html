@@ -62,9 +62,7 @@ api.onPageChange(url => {
 
 <script type="text/discourse-plugin" version="0.8">
   api.onPageChange(() => 
-    const user = api.getCurrentUser();
-    const value = user ? "logged_in" : "guest";
-    document.cookie = `discourse_current_user=${value}; Path=/; Domain=.unix.com; Secure; SameSite=Lax`;
+
     if (api.getCurrentUser()) return;
 
     const expiryKey = "guest_banner_dismissed_until";
