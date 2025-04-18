@@ -97,15 +97,17 @@ api.onPageChange(url => {
     closeBtn.innerHTML = '&times;';
     closeBtn.setAttribute('aria-label', 'Close');
     closeBtn.style.cssText = `
-      position: absolute;
-      right: 10px;
-      top: 4px;
-      font-size: 1.5rem;
-      background: none;
-      border: none;
-      color: #111;
-      cursor: pointer;
-    `;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: #111;
+  cursor: pointer;
+`;
+
     closeBtn.onclick = () => {
       banner.remove();
       const expireInDays = 7;
