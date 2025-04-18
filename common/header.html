@@ -62,18 +62,19 @@ api.onPageChange(url => {
 
 <script type="text/discourse-plugin" version="0.8">
   api.onPageChange(() => {
-
     const user = api.getCurrentUser();
-    const value = user ? "logged_in" : "guest";
-    document.cookie = `discourse_current_user=${value}; Path=/; Domain=.unix.com; Secure; SameSite=Lax`;
 
-    if (api.getCurrentUser()) return;
+    // 1. Write login state cookie
+    const loginState = user ? "logged_in" : "guest";
+    document.cookie = `discourse_current_user=${loginState}; Path=/; Domain=.unix.com; Secure; SameSite=Lax`;
 
-    const expiryKey = "guest_banner_dismissed_until";
-    const now = Date.now();
-    const storedUntil = parseInt(localStorage.getItem(expiryKey), 10);
+    if (user) return;
 
-    if (storedUntil && now < storedUntil) return;
+    // 2. Check if banner already dismissed
+    const isDismissed = document.cookie.includes("guest_banner_dismissed=1");
+    if (isDismissed) return;
+
+    // 3. Prevent duplicate injection
     if (document.querySelector('.guest-banner')) return;
 
     const bgElement = document.querySelector('.background-container');
@@ -102,22 +103,20 @@ api.onPageChange(url => {
     closeBtn.innerHTML = '&times;';
     closeBtn.setAttribute('aria-label', 'Close');
     closeBtn.style.cssText = `
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.5rem;
-  background: none;
-  border: none;
-  color: #111;
-  cursor: pointer;
-`;
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: #111;
+      cursor: pointer;
+    `;
 
     closeBtn.onclick = () => {
       banner.remove();
-      const expireInDays = 7;
-      const expiryTimestamp = now + (expireInDays * 24 * 60 * 60 * 1000);
-      localStorage.setItem(expiryKey, expiryTimestamp.toString());
+      document.cookie = `guest_banner_dismissed=1; Path=/; Domain=.unix.com; Secure; SameSite=Lax`;
     };
 
     banner.appendChild(link);
