@@ -61,9 +61,8 @@ api.onPageChange(url => {
 </script>
 
 <script type="text/discourse-plugin" version="0.8">
-  api.decorateWidget('header:after', helper => {
+  api.decorateWidget('home-logo:after', helper => {
     const currentUser = helper.currentUser;
-
     if (!currentUser) {
       return helper.h('div', {
         className: 'guest-banner',
@@ -81,6 +80,7 @@ api.onPageChange(url => {
     }
   });
 </script>
+
 
 </head>
 <body>
