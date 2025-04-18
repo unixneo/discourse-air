@@ -66,18 +66,22 @@ api.onPageChange(url => {
     if (localStorage.getItem("guest_banner_dismissed") === "1") return;
     if (document.querySelector('.guest-banner')) return;
 
+    const bgElement = document.querySelector('.background-container');
+    const computedBg = bgElement ? getComputedStyle(bgElement).background : '#00C2E8';
+
     const banner = document.createElement('section');
     banner.className = 'guest-banner';
     banner.style.cssText = `
-      background: linear-gradient(to bottom, #85D7F5, #33CFEF);
+      background: ${computedBg};
       color: #111;
-      padding: 0.5rem 1rem;
+      padding: 0.3rem 1rem;
       text-align: center;
       position: relative;
+      box-shadow: inset 0 -1px 0 rgba(0,0,0,0.1);
     `;
 
     const link = document.createElement('a');
-    link.href = 'https://get.openphone.com/unix-linux-community';
+    link.href = 'https://get.openphone.com/unix-linux-man-pages';
     link.style.cssText = 'color:#111; text-decoration:none;';
     link.innerHTML = `
       <strong>UNIX.COM Recommends OpenPhone:</strong>&nbsp;
@@ -111,7 +115,6 @@ api.onPageChange(url => {
     }
   });
 </script>
-
 
 
 </head>
