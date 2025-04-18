@@ -61,25 +61,31 @@ api.onPageChange(url => {
 </script>
 
 <script type="text/discourse-plugin" version="0.8">
-  api.decorateWidget('home-logo:after', helper => {
-    const currentUser = helper.currentUser;
-    if (!currentUser) {
-      return helper.h('div', {
-        className: 'guest-banner',
-        style: 'background-color:#00C2E8; color:#111; padding:0.5rem; text-align:center;'
-      }, [
-        helper.h('a', {
-          href: 'https://get.openphone.com/unix-linux-man-pages',
-          style: 'color:#111; text-decoration:none;'
-        }, [
-          helper.h('strong', 'UNIX.COM Recommends OpenPhone:'),
-          ' A Modern Skype Replacement — ',
-          helper.h('em', 'Free 14-Day Trial')
-        ])
-      ]);
+  api.onPageChange(() => {
+    if (api.getCurrentUser()) return; // Only show to guests
+
+    // Avoid duplicate injection
+    if (document.querySelector('.guest-banner')) return;
+
+    const banner = document.createElement('section');
+    banner.className = 'guest-banner';
+    banner.style.cssText = 'background-color:#00C2E8; color:#111; padding:0.5rem; text-align:center;';
+
+    const link = document.createElement('a');
+    link.href = 'https://get.openphone.com/unix-linux-man-pages';
+    link.style.cssText = 'color:#111; text-decoration:none;';
+    link.innerHTML = '<strong>UNIX.COM Recommends OpenPhone:</strong>&nbsp;A Modern Skype Replacement — <em>Free 14-Day Trial</em>';
+
+    banner.appendChild(link);
+
+    // Inject after the header
+    const header = document.querySelector('.d-header');
+    if (header && header.parentNode) {
+      header.parentNode.insertBefore(banner, header.nextSibling);
     }
   });
 </script>
+
 
 
 </head>
