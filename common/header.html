@@ -92,12 +92,22 @@ api.onPageChange(url => {
     `;
 
     const link = document.createElement('a');
-    link.href = 'https://get.openphone.com/unix-linux-man-pages';
+
+    if (Math.random() < 0.5) {
+  link.href = 'https://get.openphone.com/unix-linux-man-pages';
+  link.style.cssText = 'color:#111; text-decoration:none;';
+  link.innerHTML = `
+    <strong>UNIX.COM Recommends OpenPhone:</strong>&nbsp;
+    A Modern Skype Replacement — <em>Free 14-Day Trial</em>
+    `;
+  } else {
+    link.href = 'https://start.gettrusted.io/unix-linux-man-pages';
     link.style.cssText = 'color:#111; text-decoration:none;';
     link.innerHTML = `
-      <strong>UNIX.COM Recommends OpenPhone:</strong>&nbsp;
-      A Modern Skype Replacement — <em>Free 14-Day Trial</em>
+    <strong>UNIX.COM Recommends GetTrusted:</strong>&nbsp;
+    Certified Engineers & Optimized Infrastructure — <em>Fixed Monthly Fee</em>
     `;
+  }
 
     const closeBtn = document.createElement('button');
     closeBtn.innerHTML = '&times;';
