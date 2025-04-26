@@ -61,82 +61,85 @@ api.onPageChange(url => {
 </script>
 
 <script type="text/discourse-plugin" version="0.8">
-  api.onPageChange(() => {
-    const user = api.getCurrentUser();
+  const guestBannerEnabled = settings.guest_banner_enabled;
 
-    // 1. Write login state cookie
-    const loginState = user ? "logged_in" : "guest";
-    document.cookie = `discourse_current_user=${loginState}; Path=/; Domain=.unix.com; Secure; SameSite=Lax`;
+  if (guestBannerEnabled) {
+    api.onPageChange(() => {
+      const user = api.getCurrentUser();
 
-    if (user) return;
+      // 1. Write login state cookie
+      const loginState = user ? "logged_in" : "guest";
+      document.cookie = `discourse_current_user=${loginState}; Path=/; Domain=.unix.com; Secure; SameSite=Lax`;
 
-    // 2. Check if banner already dismissed
-    const isDismissed = document.cookie.includes("guest_banner_dismissed=1");
-    if (isDismissed) return;
+      if (user) return;
 
-    // 3. Prevent duplicate injection
-    if (document.querySelector('.guest-banner')) return;
+      // 2. Check if banner already dismissed
+      const isDismissed = document.cookie.includes("guest_banner_dismissed=1");
+      if (isDismissed) return;
 
-    const bgElement = document.querySelector('.background-container');
-    const computedBg = bgElement ? getComputedStyle(bgElement).background : '#00C2E8';
+      // 3. Prevent duplicate injection
+      if (document.querySelector('.guest-banner')) return;
 
-    const banner = document.createElement('section');
-    banner.className = 'guest-banner';
-    banner.style.cssText = `
-      background: ${computedBg};
-      color: #111;
-      padding: 1rem 0.5rem;
-      text-align: center;
-      position: relative;
-      box-shadow: inset 0 -1px 0 rgba(0,0,0,0.1);
-    `;
+      const bgElement = document.querySelector('.background-container');
+      const computedBg = bgElement ? getComputedStyle(bgElement).background : '#00C2E8';
 
-    const link = document.createElement('a');
+      const banner = document.createElement('section');
+      banner.className = 'guest-banner';
+      banner.style.cssText = `
+        background: ${computedBg};
+        color: #111;
+        padding: 1rem 0.5rem;
+        text-align: center;
+        position: relative;
+        box-shadow: inset 0 -1px 0 rgba(0,0,0,0.1);
+      `;
 
-    if (Math.random() < 0.5) {
-  link.href = 'https://get.openphone.com/unix-linux-community';
-  link.style.cssText = 'color:#111; text-decoration:none;';
-  link.innerHTML = `
-    OpenPhone:&nbsp; Our Recommended Skype Replacement — <em>Free 14-Day Trial</em>
-    `;
-  } else {
-    link.href = 'https://gitlabultimate.partnerlinks.io/unix-linux-community';
-    link.style.cssText = 'color:#111; text-decoration:none;';
-    link.innerHTML = `
-     GitLab Ultimate and Duo Enterprise — <em>Free 60-Day Trial</em>
-    `;
+      const link = document.createElement('a');
+
+      if (Math.random() < 0.5) {
+        link.href = 'https://get.openphone.com/unix-linux-community';
+        link.style.cssText = 'color:#111; text-decoration:none;';
+        link.innerHTML = `
+          OpenPhone:&nbsp; Our Recommended Skype Replacement — <em>Free 14-Day Trial</em>
+        `;
+      } else {
+        link.href = 'https://gitlabultimate.partnerlinks.io/unix-linux-community';
+        link.style.cssText = 'color:#111; text-decoration:none;';
+        link.innerHTML = `
+          GitLab Ultimate and Duo Enterprise — <em>Free 60-Day Trial</em>
+        `;
+      }
+
+      const closeBtn = document.createElement('button');
+      closeBtn.innerHTML = '&times;';
+      closeBtn.setAttribute('aria-label', 'Close');
+      closeBtn.style.cssText = `
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        color: #111;
+        cursor: pointer;
+      `;
+
+      closeBtn.onclick = () => {
+        banner.remove();
+        document.cookie = `guest_banner_dismissed=1; Path=/; Domain=.unix.com; Secure; SameSite=Lax`;
+      };
+
+      banner.appendChild(link);
+      banner.appendChild(closeBtn);
+
+      const header = document.querySelector('.d-header');
+      if (header && header.parentNode) {
+        header.parentNode.insertBefore(banner, header.nextSibling);
+      }
+    });
   }
-
-    const closeBtn = document.createElement('button');
-    closeBtn.innerHTML = '&times;';
-    closeBtn.setAttribute('aria-label', 'Close');
-    closeBtn.style.cssText = `
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 1.5rem;
-      background: none;
-      border: none;
-      color: #111;
-      cursor: pointer;
-    `;
-
-    closeBtn.onclick = () => {
-      banner.remove();
-      document.cookie = `guest_banner_dismissed=1; Path=/; Domain=.unix.com; Secure; SameSite=Lax`;
-    };
-
-    banner.appendChild(link);
-    banner.appendChild(closeBtn);
-
-    const header = document.querySelector('.d-header');
-    if (header && header.parentNode) {
-      header.parentNode.insertBefore(banner, header.nextSibling);
-    }
-  });
 </script>
-
 
 
 </head>
