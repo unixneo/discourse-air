@@ -1,5 +1,5 @@
-theme_settings:
-  guest_banner_enabled:
-    default: true
-    type: bool
-    description: "Enable or disable the guest banner for anonymous users."
+guest_banner_enabled:
+  default: true
+  type: bool
+  description: "Enable or disable the guest banner for anonymous users."
+
