@@ -1,5 +1,5 @@
 guest_banner_enabled:
-  default: true
+  default: false
   type: bool
   description: "Enable or disable the guest banner for anonymous users."
 
